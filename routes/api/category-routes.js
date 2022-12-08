@@ -3,7 +3,7 @@ const { restart } = require("nodemon");
 const { Category, Product } = require("../../models");
 
 // The `/api/categories` endpoint
-
+//http://localhost/api/categories/
 router.get("/", async (req, res) => {
   // find all categories
   // be sure to include its associated Products
@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//http://localhost/api/categories/: id
 router.get("/:id", async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
@@ -45,7 +45,7 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//http://localhost/api/categories/
 router.post("/", async (req, res) => {
   // create a new category
   /* req.body should look like this
@@ -65,7 +65,7 @@ router.post("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//http://localhost/api/categories/:id
 router.put("/:id", async (req, res) => {
   // update a category by its `id` value
   /* req.body should look like this
@@ -87,7 +87,7 @@ router.put("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//http://localhost/api/categories/:id
 router.delete("/:id", async (req, res) => {
   // delete a category by its `id` value
   try {
