@@ -45,8 +45,24 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   // create a new tag
+  /* req.body should look like this
+  {
+    tag_name: "Shiny"
+  }
+  */
+
+  try {
+    const newTag = await Tag.create(req.body);
+
+    if (!newTag) {
+      res.status(404).json("You didnt enter a tag name");
+    }
+    res.status(200).json(newTag);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.put("/:id", (req, res) => {
